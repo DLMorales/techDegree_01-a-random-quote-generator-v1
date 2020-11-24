@@ -26,12 +26,6 @@ h1 {
   text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);
 }
 
-.img-box {
-  float: right;
-  width: 200px;
-  height: 200px;
-}
-
 .load-quote {
   color: #fff;
   text-shadow: 1px 1px 1px rgba(50, 50, 50, 0.3);

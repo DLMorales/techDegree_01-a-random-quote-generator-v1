@@ -10,51 +10,46 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-var quotes = [
+const quotes = [
 	{
-		"quote": "When you are struggling to follow the book, do not jump to any conclusions about your own capabilities. You are fine -- you just need to keep at it.",
+		"quote": "When you are struggling to follow the book, do not jump to any " +
+						 "conclusions about your own capabilities. You are fine -- you " + 
+						 "just need to keep at it.",
 		"source": "Marijn Haverbeke",
 		"person-or-character": "[Person]",
 		"citation": "Eloquent JavaScript, 3rd Edition",
-		"year": "2019",
-		"imageSource": "img\\marijn_haverbeke.jpg",
-		"imageAlt": "Photo of Marijn Haverbeke"
+		"year": "2019"
 	},
 	{
-		"quote": "Criticism is futile because it puts a person on the defensive and usually makes him strive to justify himself.",
+		"quote": "Criticism is futile because it puts a person on the defensive " + 
+						 "and usually makes him strive to justify himself.",
 		"source": "Dale Carnegie",
 		"person-or-character": "[Person]",
 		"citation": "How to Win Friends & Influence People",
-		"year": "1936",
-		"imageSource": "img\\dale_carnegie.jpg",
-		"imageAlt": "Photo of Dale Carnegie"
+		"year": "1936"
 	},
 	{
-		"quote": "No man is invincible, and therefore no man can fully understand what which would make him invincible.",
+		"quote": "No man is invincible, and therefore no man can fully " +
+						 "understand what which would make him invincible.",
 		"source": "Miyamoto Musashi",
 		"person-or-character": "[Person]",
 		"citation": "Bookf of Five Rings",
-		"year": "1643",
-		"imageSource": "img\\samurai_helmet.jpg",
-		"imageAlt": "Photo of a Samurai Helmet"
+		"year": "1643"
 	},
 	{
-		"quote": "Arithmetic is just like any other craft; you can get good at it if you want to, but it is no big deal either way.",
+		"quote": "Arithmetic is just like any other craft; you can get good at it " + 
+						 "if you want to, but it is no big deal either way.",
 		"source": "Paul Lockhart",
 		"person-or-character": "[Person]",
 		"citation": "Arithmetic",
-		"year": "2017",
-		"imageSource": "img\\paul_lockhart.jpg",
-		"imageAlt": "Photo of Paul Lockhart"
+		"year": "2017"
 	},
 	{
 		"quote": "Choose Life.",
 		"source": "Mark Renton",
 		"person-or-character": "[Character]",
 		"citation": "Trainspotting",
-		"year": "1996",
-		"imageSource": "img\\mark_renton.jpg",
-		"imageAlt": "Illustration of the character Mark Renton"
+		"year": "1996"
 	},
 
 ];
