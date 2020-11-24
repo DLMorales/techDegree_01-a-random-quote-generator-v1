@@ -75,22 +75,41 @@ function getRandomQuote(quoteArray) {
 
 }
 
-/*
- * The following function was taken from the Mozilla Developer Network 
- * webpage on the 'Math.random()' function:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
- */
 function getRandomInt(min, max) {
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+// This function is 'max' exclusive, and returns an integer between 'min' and 'max - 1'
+// (perfect for array indices ;-] ).
+
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min) + min);
+
 }
 
 /***
  * `printQuote` function
 ***/
 function printQuote() {
+// Call the 'getRandomQuote' function
+	let quoteObj = getRandomQuote(quotes);
 
+// Use the returned quote object to build a string of HTML and quote properties
+	let quoteStr = `<p class="quote"> ${quoteObj.quote} </p><p class="source"> ${quoteObj.source} `; // closing </p> left off
+
+	for (let prop in quoteObj) {
+		if (!(prop == "quote" || prop == "source")) {
+			console.log(prop);
+			if (prop) {
+				quoteStr += `<span class="${prop}"> ${quoteObj[prop]} </span>`;
+			}
+		}
+	}
+
+	quoteStr += '</p>';
+	console.log(quoteStr);
+
+// Use that string to display a random quote in the browswer
+	return quoteStr;
 }
 
 
