@@ -14,7 +14,7 @@ var quotes = [
 	{
 		"quote": "When you are struggling to follow the book, do not jump to any conclusions about your own capabilities. You are fine -- you just need to keep at it.",
 		"source": "Marijn Haverbeke",
-		"realPerson": "(Real Person)",
+		"person-or-character": "[Person]",
 		"citation": "Eloquent JavaScript, 3rd Edition",
 		"year": "2019",
 		"imageSource": "img\\marijn_haverbeke.jpg",
@@ -23,7 +23,7 @@ var quotes = [
 	{
 		"quote": "Criticism is futile because it puts a person on the defensive and usually makes him strive to justify himself.",
 		"source": "Dale Carnegie",
-		"realPerson": "Person",
+		"person-or-character": "[Person]",
 		"citation": "How to Win Friends & Influence People",
 		"year": "1936",
 		"imageSource": "img\\dale_carnegie.jpg",
@@ -32,7 +32,7 @@ var quotes = [
 	{
 		"quote": "No man is invincible, and therefore no man can fully understand what which would make him invincible.",
 		"source": "Miyamoto Musashi",
-		"realPerson": "Person",
+		"person-or-character": "[Person]",
 		"citation": "Bookf of Five Rings",
 		"year": "1643",
 		"imageSource": "img\\samurai_helmet.jpg",
@@ -41,7 +41,7 @@ var quotes = [
 	{
 		"quote": "Arithmetic is just like any other craft; you can get good at it if you want to, but it is no big deal either way.",
 		"source": "Paul Lockhart",
-		"realPerson": "Person",
+		"person-or-character": "[Person]",
 		"citation": "Arithmetic",
 		"year": "2017",
 		"imageSource": "img\\paul_lockhart.jpg",
@@ -50,7 +50,7 @@ var quotes = [
 	{
 		"quote": "Choose Life.",
 		"source": "Mark Renton",
-		"realPerson": "Character",
+		"person-or-character": "[Character]",
 		"citation": "Trainspotting",
 		"year": "1996",
 		"imageSource": "img\\mark_renton.jpg",
@@ -109,7 +109,7 @@ function printQuote() {
 	console.log(quoteStr);
 
 // Use that string to display a random quote in the browswer
-	return quoteStr;
+  document.getElementById('quote-box').innerHTML = quoteStr;
 }
 
 
@@ -117,5 +117,4 @@ function printQuote() {
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
