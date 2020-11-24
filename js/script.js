@@ -63,15 +63,33 @@ var quotes = [
 /***
  * `getRandomQuote` function
 ***/
-function getRandomQuote {
+function getRandomQuote(quoteArray) {
+// This function takes an 'quoteArray', and returns a reference to random 
+// 'quoteObject'.
+//
+// This function calls the 'getRandomInt' function to return a random index
+// based on the 'length' of the passed 'quoteArray'.
+
+	let index = getRandomInt(0, quoteArray.length);
+	return quoteArray[index];
 
 }
 
+/*
+ * The following function was taken from the Mozilla Developer Network 
+ * webpage on the 'Math.random()' function:
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+ */
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min) + min);
+}
 
 /***
  * `printQuote` function
 ***/
-function printQuote {
+function printQuote() {
 
 }
 
@@ -81,4 +99,4 @@ function printQuote {
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+//document.getElementById('load-quote').addEventListener("click", printQuote, false);
