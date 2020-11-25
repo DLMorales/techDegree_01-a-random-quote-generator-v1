@@ -10,7 +10,7 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-const quotes = [
+const QUOTES = [
 	{
 		"quote": "When you are struggling to follow the book, do not jump to any " +
 						 "conclusions about your own capabilities. You are fine -- you " + 
@@ -19,6 +19,14 @@ const quotes = [
 		"person-or-character": "[Person]",
 		"citation": "Eloquent JavaScript, 3rd Edition",
 		"year": "2019"
+	},
+	{
+		"quote": "Every greate developer you know got there by solving problems " +
+						 "they were unqualified to sovle until they actually did it.",
+		"source": "Patrick McKenzie",
+		"person-or-character": "",
+		"citation": "Twitter",
+		"year": "2016"
 	},
 	{
 		"quote": "Criticism is futile because it puts a person on the defensive " + 
@@ -54,6 +62,18 @@ const quotes = [
 
 ];
 
+const COLORS = [
+	"red", 
+	"blue", 
+	"purple", 
+	"yellow", 
+	"gold", 
+	"lightblue", 
+	"pink", 
+	"darkblue", 
+	"lightgreen", 
+	"brown"
+];
 
 /***
  * `getRandomQuote` function
@@ -66,9 +86,15 @@ function getRandomQuote(quoteArray) {
 // based on the 'length' of the passed 'quoteArray'.
 
 	let index = getRandomInt(0, quoteArray.length);
-	return quoteArray[index];
-
+	return quoteArray[index]; // <-- RETURNS AN OBJECT
 }
+
+
+function getRandomColor(colorArray) {
+	let index = getRandomInt(0, colorArray.length);
+	return colorArray[index]; // <-- RETURNS A STRING
+}
+
 
 function getRandomInt(min, max) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -77,25 +103,27 @@ function getRandomInt(min, max) {
 
 	min = Math.ceil(min);
 	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min) + min);
-
+	return Math.floor(Math.random() * (max - min) + min); // <-- RETURNS INTEGER
 }
+
 
 /***
  * `printQuote` function
 ***/
 function printQuote() {
 // Call the 'getRandomQuote' function
-	let quoteObj = getRandomQuote(quotes);
+	let quoteObj = getRandomQuote(QUOTES);
+	let randomColor = getRandomColor(COLORS);
 
 // Use the returned quote object to build a string of HTML and quote properties
-	let quoteStr = `<p class="quote"> ${quoteObj.quote} </p><p class="source"> ${quoteObj.source} `; // closing </p> left off
+	let quoteStr = `<p class="quote">${quoteObj.quote}</p>` + 
+								 `<p class="source">${quoteObj.source}`;
 
 	for (let prop in quoteObj) {
 		if (!(prop == "quote" || prop == "source")) {
 			console.log(prop);
 			if (prop) {
-				quoteStr += `<span class="${prop}"> ${quoteObj[prop]} </span>`;
+				quoteStr += `<span class="${prop}">${quoteObj[prop]}</span>`;
 			}
 		}
 	}
@@ -104,6 +132,7 @@ function printQuote() {
 	console.log(quoteStr);
 
 // Use that string to display a random quote in the browswer
+	document.body.style.backgroundColor = randomColor;
   document.getElementById('quote-box').innerHTML = quoteStr;
 }
 
