@@ -21,7 +21,7 @@ const QUOTES = [
 		"year": "2019"
 	},
 	{
-		"quote": "Every greate developer you know got there by solving problems " +
+		"quote": "Every great developer you know got there by solving problems " +
 						 "they were unqualified to sovle until they actually did it.",
 		"source": "Patrick McKenzie",
 		"person-or-character": "",
@@ -38,10 +38,10 @@ const QUOTES = [
 	},
 	{
 		"quote": "No man is invincible, and therefore no man can fully " +
-						 "understand what which would make him invincible.",
+						 "understand that which would make him invincible.",
 		"source": "Miyamoto Musashi",
 		"person-or-character": "[Person]",
-		"citation": "Bookf of Five Rings",
+		"citation": "Book of Five Rings",
 		"year": "1643"
 	},
 	{
@@ -123,7 +123,7 @@ function printQuote() {
 		if (!(prop == "quote" || prop == "source")) {
 			console.log(prop);
 			if (prop) {
-				quoteStr += `<span class="${prop}">${quoteObj[prop]}</span>`;
+				quoteStr += `<span class="${prop}"> ${quoteObj[prop]}</span>`;
 			}
 		}
 	}
@@ -136,6 +136,8 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = quoteStr;
 }
 
+// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
+const autoChange = setInterval(printQuote, 15000);
 
 /***
  * click event listener for the print quote button
