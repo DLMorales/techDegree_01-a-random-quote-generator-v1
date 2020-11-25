@@ -37,7 +37,7 @@ const QUOTES = [
 		"year": "2019"
 	},
 	{
-		"quote": "Every great developer you know got there by solving problems " +
+		"quote": "Every great developer you know got there by solving problems " + // Incorporated for consistency sake
 						 "they were unqualified to sovle until they actually did it.",
 		"source": "Patrick McKenzie",
 		"person-or-character": "",
