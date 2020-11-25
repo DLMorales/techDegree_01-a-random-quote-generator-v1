@@ -3,13 +3,29 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+/*******************************************************************************
+ * NOTE TO THE REVIEWER
+ *
+ * Hello! I am trying for the "Exceeds Expectations" grade on this project.
+ *
+ * In commenting the code, I have tried to adhere to the standards of JSdoc:
+ * https://jsdoc.app/index.html#block-tags
+ *
+ * I have tested the below code in the following web browsers:
+ * 		- Google Chrome
+ * 		- Mozilla Firefox
+ * 		- Microsoft Edge
+ *
+*******************************************************************************/
 
-/*** 
- * `quotes` array 
-***/
+/*******************************************************************************
+ * CONSTANT DECLARATIONS
+*******************************************************************************/
+
+/**
+ * @constant
+ * @type {Object[]}
+ */
 const QUOTES = [
 	{
 		"quote": "When you are struggling to follow the book, do not jump to any " +
@@ -62,6 +78,11 @@ const QUOTES = [
 
 ];
 
+
+/**
+ * @constant
+ * @type {string[]}
+ */
 const COLORS = [
 	"red", 
 	"blue", 
@@ -75,50 +96,68 @@ const COLORS = [
 	"brown"
 ];
 
-/***
- * `getRandomQuote` function
-***/
-function getRandomQuote(quoteArray) {
-// This function takes an 'quoteArray', and returns a reference to random 
-// 'quoteObject'.
-//
-// This function calls the 'getRandomInt' function to return a random index
-// based on the 'length' of the passed 'quoteArray'.
+/*******************************************************************************
+ * FUNCTION DECLARATIONS
+*******************************************************************************/
 
+/**
+ * Picks a random quote object.
+ * @function
+ * @name getRandomQuote
+ * @param {Object[]} quoteArray - An array of quote objects
+ * @returns {Object} - A quote object
+ */
+function getRandomQuote(quoteArray) {
 	let index = getRandomInt(0, quoteArray.length);
-	return quoteArray[index]; // <-- RETURNS AN OBJECT
+	return quoteArray[index];
 }
 
 
+/**
+ * Picks a random color name string.
+ * @function
+ * @name getRandomColor
+ * @param {string[]} colorArray - An array of strings containing color names
+ * @returns {string} - A color name string
+ */
 function getRandomColor(colorArray) {
 	let index = getRandomInt(0, colorArray.length);
-	return colorArray[index]; // <-- RETURNS A STRING
+	return colorArray[index];
 }
 
 
+/**
+ * Returns a random integer between the range of 'min' and 'max - 1'
+ * @function
+ * @name getRandomInt
+ * @param {number} min - The lowerbound of the range
+ * @param {number} max - The number used to set the upperbound
+ * @returns {number} - An integer
+ * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random}
+ */
 function getRandomInt(min, max) {
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-// This function is 'max' exclusive, and returns an integer between 'min' and 'max - 1'
-// (perfect for array indices ;-] ).
-
 	min = Math.ceil(min);
 	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min) + min); // <-- RETURNS INTEGER
+	return Math.floor(Math.random() * (max - min) + min);
 }
 
 
-/***
- * `printQuote` function
-***/
+/**
+ * Builds a quote string and writes it to the 'quote-box' inner HTML
+ * @function
+ * @name printQuote
+ */
 function printQuote() {
-// Call the 'getRandomQuote' function
+	// Get the random quote object and color name
 	let quoteObj = getRandomQuote(QUOTES);
 	let randomColor = getRandomColor(COLORS);
 
-// Use the returned quote object to build a string of HTML and quote properties
+	// Use the returned quote object to build the basic HTML string
 	let quoteStr = `<p class="quote">${quoteObj.quote}</p>` + 
 								 `<p class="source">${quoteObj.source}`;
 
+	// Build additional HTML <span> tag strings with remaining quote object
+		// properties
 	for (let prop in quoteObj) {
 		if (!(prop == "quote" || prop == "source")) {
 			console.log(prop);
@@ -128,19 +167,26 @@ function printQuote() {
 		}
 	}
 
+	// Close the HTML string
 	quoteStr += '</p>';
-	console.log(quoteStr);
 
-// Use that string to display a random quote in the browswer
+	// Sets the background color and inner HTML
 	document.body.style.backgroundColor = randomColor;
   document.getElementById('quote-box').innerHTML = quoteStr;
 }
 
-// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals
-const autoChange = setInterval(printQuote, 15000);
+
+/*******************************************************************************
+ * EVENT LISTENERS AND INTERVALS
+*******************************************************************************/
+/**
+ * {@link https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals}
+ */
+const autoChange = setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
